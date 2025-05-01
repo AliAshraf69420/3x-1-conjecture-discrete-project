@@ -22,8 +22,7 @@ Youssef Islam
 \tableofcontents
 \pagebreak
 \section{Introduction}
-\section{Introduction}
-
+\subsection{Definition and background information}
 The \textit{Collatz conjecture}, also known as the \textit{3\( x \)+1 conjecture}, is a simple mathematical problem that has challenged mathematicians for years. Despite its rather simple definition, no one has yet been able to prove or disprove it conclusively.
 
 The conjecture states that, starting with any positive integer \( x \), repeatedly applying the function \( C(x) \) defined below will eventually lead to $1$:
@@ -36,23 +35,107 @@ The conjecture states that, starting with any positive integer \( x \), repeated
   \end{cases}
 \]
 
-That means, if the number is odd, multiply it by 3 and add 1; if it is even, divide it by 2. This process is repeated recursively. Although this algorithm appears straightforward, the long-term behavior of all starting values remains unsolved.
-
+That means, if the number is odd, multiply it by 3 and add 1; if it is even, divide it by 2. This process is repeated recursively. Although this algorithm appears straightforward, the long-term behavior of all starting values remains unsolved. \\
 This project explores the background, behavior, attempted proof strategies, and applications related to the conjecture.
-\subsection{Relevance and Applications}
-
-While the Collatz conjecture remains unresolved, its recursive structure and behavior have intrigued mathematicians and computer scientists alike. It's useful for understanding the limits of algorithmic predictability, and is frequently referenced in complexity theory and dynamical systems. Additionally, its simplicity makes it a compelling teaching example in courses on algorithms, number theory, and discrete mathematics.
-
 
 \pagebreak
 \section{Main Body}
-To include
-\begin{enumerate}
-  \item in depth details on the conjecture
-  \item Must include its use
-  \item rejected proof on the conjecture probably
-  \item code block
-\end{enumerate}
+\subsection{Detailed information on the conjecture}
+
+\subsection{Relevance and Applications}
+Even though the Collatz conjecture hasn't been solved yet, its recursive structure and behavior puzzled mathematicians and computer scientists alike. It's used in understanding algorithmic predictability limits, is frequently mentioned in complexity theory and dynamical systems.\cite{ref1}\\
+Moreover, due to its simplicity, it's used as a teaching example in courses that cover topics such as algorithms, number theory, and discrete mathematics.\cite{ref1} \\
+In addition, The Collatz conjecture is not only a mathematical puzzle but also a practical benchmark for computational systems. Its iterative complexity and unpredictable behavior make it ideal for testing algorithmic efficiency and system performance. Researchers like Oliveira e Silva have used it to push the limits of parallel and distributed computing, making the conjecture a tool for evaluating large-scale computational capabilities.\cite{ref4}
+\subsection{Attempted proof}
+We attempt to prove the Collatz conjecture by contradiction. Suppose there exists an infinite sequence \( Q \) that never reaches 1. Then \( 1 \notin Q \), and
+\[
+  Q = \{Q_1, Q_2, Q_3, \dots\}
+\]
+with \( f_c(Q_i) = Q_{i+1} \), where
+\[
+  f_c(x) =
+  \begin{cases}
+    3x + 1       & \text{if } x \equiv 1 \pmod{2}, \\
+    \dfrac{x}{2} & \text{if } x \equiv 0 \pmod{2}.
+  \end{cases}
+\]
+
+We sort the sequence \( Q \) in ascending order—justified by the Axiom of Choice \cite{ref1}—and denote it as \( Q' \). Then define:
+\[
+  Q_E = \{E_1, E_2, \dots\}, \quad Q_O = \{O_1, O_2, \dots\}
+\]
+with:
+\[
+  E_i < E_{i+1}, \quad O_i < O_{i+1}
+\]
+
+\paragraph{Even-to-Odd Mapping.} If \( f_c(E_1) = O_x \) for some \( x > 1 \), then \( O_x < O_1 \), contradicting the ordering. Therefore, \( f_c(E_1) = O_1 \). By the same logic:
+\[
+  f_c(E_r) = O_r \quad \text{for all } r \in \mathbb{N}
+\]
+
+\paragraph{Odd-to-Even Mapping.} Assume \( f_c(O_1) = 3O_1 + 1 = 2^r \cdot O_y \) for \( r \geq 2 \). Then \( O_y < O_1 \), contradicting the ordering. So:
+\[
+  f_c(O_r) = E_{r+1} \quad \text{for all } r \in \mathbb{N}
+\]
+
+Hence:
+\[
+  Q' = \{E_1, O_1, E_2, O_2, E_3, O_3, \dots\}
+\]
+and since \( Q \) and \( Q' \) contain the same elements, they are equal sets \cite{ref1}:
+\[
+  Q = Q'
+\]
+
+\paragraph{Contradiction.} Let an odd number be \( O_x = 2^k m - 1 \), with \( m \) odd and \( k \geq 1 \). Then repeated application of \( f_c \) yields:
+
+\begin{align*}
+   & 2^4 \cdot 5 - 1                       &  & \text{(odd)}  \\
+   & \rightarrow 3 \cdot 2^4 \cdot 5 - 2   &  & \text{(even)} \\
+   & \rightarrow 3 \cdot 2^3 \cdot 5 - 1   &  & \text{(odd)}  \\
+   & \rightarrow 3^2 \cdot 2^3 \cdot 5 - 2 &  & \text{(even)} \\
+   & \cdots                                                   \\
+   & \rightarrow 3^4 \cdot 5 - 1           &  & \text{(even)}
+\end{align*}
+
+This shows at least two consecutive even numbers (E-E) appear, contradicting the alternating pattern \( E, O, E, O, \dots \) established in \( Q \).
+
+\paragraph{Conclusion.} The pattern generated by \( f_c \) contradicts the assumed structure of the non-terminating \( Q \). Therefore, no such infinite sequence can exist. This supports the Collatz conjecture \cite{ref1}.
+\subsection{Algorithm that applies the Collatz conjecture with its analysis}
+This is a basic algorithm that applies the Collatz conjecture:
+\begin{lstlisting}
+# Collatz.py
+def IsEven(n):
+    if (n % 2 == 0):
+        return True
+    else:
+        return False
+
+def Collatz(x, sols):
+    if x == 1:
+        sols.append(1)
+        return 1
+    sols.append(x)
+    if IsEven(x):
+        return Collatz(x // 2, sols)
+    else:
+        return Collatz(3 * x + 1, sols)
+\end{lstlisting}
+Here is the Algorithm's analysis: \\
+The base case for the algorithm is: $T(1) = 1$ \\
+The recurrence relation for the algorithm is:
+\[
+  T(x) =
+  \begin{cases}
+    T\left(\frac{x}{2}\right) + 1 & \text{if } x \text{ is even}, \\
+    T(3x + 1) + 1                 & \text{if } x \text{ is odd}.
+  \end{cases}
+\]
+Time complexity:
+The time complexity of the algorithm is unknown because the Collatz conjecture remains unproven. Empirically, the algorithm terminates for all tested inputs, but the number of steps required to reach $1$ varies significantly depending on the input. \\
+Space complexity:
+The space complexity of the algorithm is $O(n)$, where $n$ is the number of steps in the sequence, because the algorithm stores the sequence in a list.
 \pagebreak
 \section{Conclusion}
 To include
@@ -62,8 +145,11 @@ To include
 \end{enumerate}
 \pagebreak
 \section*{}
+
 \begin{thebibliography}{99}
-  \bibitem{ref1} Author Name, *Title of the Paper or Book*, Publisher, Year.
-  \bibitem{ref2} Another Author, *Another Title*, Journal Name, Volume(Issue), Pages, Year.
+  \bibitem{ref1} Salvador Bermúdez Gómez, \textit{The 3x + 1 Conjecture, a Direct Path}, American Journal of Computational Mathematics, 2023.
+  \bibitem{ref2} Jeffrey C. Lagarias, \textit{The 3x+1 problem and its generalizations}, American Mathematical Monthly, 1985.
+  \bibitem{ref3} Wikipedia contributors, \textit{Collatz conjecture}, \url{https://en.wikipedia.org/wiki/Collatz_conjecture}, accessed 2025.
+  \bibitem{ref4} Jeffrey C. Lagarias, \textit{The 3x + 1 Problem: An Overview}, American Mathematical Society, 2010.
 \end{thebibliography}
 \end{document}

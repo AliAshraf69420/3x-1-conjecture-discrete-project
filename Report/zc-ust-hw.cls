@@ -17,39 +17,32 @@
 %%%%%%%%%%%%
 %  Colors  %
 %%%%%%%%%%%%
-
 \RequirePackage{xcolor}
-\colorlet{backcolour}{gray!10!white}
-\colorlet{commentcolour}{green!40!black}
-\colorlet{keywordcolour}{blue}
-\colorlet{stringcolour}{orange!80!white}
-\colorlet{rulecolour}{black}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
 
 %%%%%%%%%%
 %  Code  %
 %%%%%%%%%%
 
 \RequirePackage{listings}
-\lstdefinestyle{mystyle}{
-  backgroundcolor=\color{backcolour},
-  basicstyle=\ttfamily\small,
-  breakatwhitespace=false,
-  breaklines=true,
-  captionpos=b,
-  frame=single,
-  commentstyle=\color{commentcolour},
-  escapeinside={\%*}{*)},
-  keywordstyle=\color{keywordcolour},
-  numbers=left,
-  numbersep=5pt,
-  numberstyle=\tiny\color{gray},
-  rulecolor=\color{rulecolour},
-  showspaces=false,
+
+\lstdefinestyle{mystyle}{frame=tb,
+  language=python,
+  aboveskip=3mm,
+  belowskip=3mm,
   showstringspaces=false,
-  showtabs=false,
-  stepnumber=1,
-  stringstyle=\color{stringcolour},
-  tabsize=4,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
 }
 \lstset{style=mystyle}
 
