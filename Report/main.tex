@@ -22,16 +22,34 @@ Youssef Islam
 \tableofcontents
 \pagebreak
 \section{Introduction}
-To include: 
-\begin{enumerate}
-  \item Brief intro on the conjecture
-  \item include proof methods and stuff
-\end{enumerate}
+\section{Introduction}
+
+The \textit{Collatz conjecture}, also known as the \textit{3\( x \)+1 conjecture}, is a simple mathematical problem that has challenged mathematicians for years. Despite its rather simple definition, no one has yet been able to prove or disprove it conclusively.
+
+The conjecture states that, starting with any positive integer \( x \), repeatedly applying the function \( C(x) \) defined below will eventually lead to $1$:
+
+\[
+  C(x) =
+  \begin{cases}
+    3x + 1       & \text{if } x \equiv 1 \pmod{2}, \\
+    \dfrac{x}{2} & \text{if } x \equiv 0 \pmod{2}.
+  \end{cases}
+\]
+
+That means, if the number is odd, multiply it by 3 and add 1; if it is even, divide it by 2. This process is repeated recursively. Although this algorithm appears straightforward, the long-term behavior of all starting values remains unsolved.
+
+This project explores the background, behavior, attempted proof strategies, and applications related to the conjecture.
+\subsection{Relevance and Applications}
+
+While the Collatz conjecture remains unresolved, its recursive structure and behavior have intrigued mathematicians and computer scientists alike. It's useful for understanding the limits of algorithmic predictability, and is frequently referenced in complexity theory and dynamical systems. Additionally, its simplicity makes it a compelling teaching example in courses on algorithms, number theory, and discrete mathematics.
+
+
 \pagebreak
 \section{Main Body}
 To include
 \begin{enumerate}
   \item in depth details on the conjecture
+  \item Must include its use
   \item rejected proof on the conjecture probably
   \item code block
 \end{enumerate}
@@ -45,7 +63,7 @@ To include
 \pagebreak
 \section*{}
 \begin{thebibliography}{99}
-\bibitem{ref1} Author Name, *Title of the Paper or Book*, Publisher, Year.
-\bibitem{ref2} Another Author, *Another Title*, Journal Name, Volume(Issue), Pages, Year.
+  \bibitem{ref1} Author Name, *Title of the Paper or Book*, Publisher, Year.
+  \bibitem{ref2} Another Author, *Another Title*, Journal Name, Volume(Issue), Pages, Year.
 \end{thebibliography}
 \end{document}
