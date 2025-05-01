@@ -3,6 +3,9 @@
 
 \LoadClass[12pt, a4paper]{article}
 
+
+\RequirePackage{graphicx}
+\graphicspath{ {./} }
 %%%%%%%%%%%%%%
 %  Geometry  %
 %%%%%%%%%%%%%%

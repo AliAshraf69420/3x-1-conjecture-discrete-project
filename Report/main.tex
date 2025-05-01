@@ -15,7 +15,7 @@ Youssef Islam
 202300886
 }
 \course{MATH205}
-\assignment{Project on the $3x +1$ conjecture.}
+\assignment{Report for project on the \textit{Collatz conjecture}.}
 
 \begin{document}
 \maketitle
@@ -41,9 +41,24 @@ This project explores the background, behavior, attempted proof strategies, and 
 \pagebreak
 \section{Main Body}
 \subsection{Detailed information on the conjecture}
+The Collatz conjecture is deceptively simple in formulation but deeply complex in behavior. It concerns the iterative behavior of integers under a piecewise-defined function:
+\[
+  C(x) =
+  \begin{cases}
+    3x + 1       & \text{if } x \equiv 1 \pmod{2}, \\
+    \dfrac{x}{2} & \text{if } x \equiv 0 \pmod{2}.
+  \end{cases}
+\]
+This process, often visualized as a sequence starting from a positive integer $x$, is repeated recursively. For instance, starting at $x=6$, the sequence evolves as: \\
+$6 \to 3 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1$ \\
+\includegraphics[width=1\textwidth]{CollatzTheoremBeginningWith6.jpeg}
+The conjecture asserts that no matter which positive integer is chosen initially, the sequence always eventually reaches the cycle $4 \to 2 \to 1$, after which it loops indefinitely. \\
+Despite extensive numerical verification up to extremely large bounds (as in the work of Oliveira e Silva), no formal proof or counterexample exists. The problem's appeal lies in its accessibility: it requires no advanced mathematics to understand, yet its resolution remains elusive even to experts. \\
+
+For example,  Various generalizations and analogues of the problem, such as the $px+q$ variants, have been proposed to explore similar dynamics in broader contexts.
 
 \subsection{Relevance and Applications}
-Even though the Collatz conjecture hasn't been solved yet, its recursive structure and behavior puzzled mathematicians and computer scientists alike. It's used in understanding algorithmic predictability limits, is frequently mentioned in complexity theory and dynamical systems.\cite{ref1}\\
+Even though the Collatz conjecture hasn't been solved yet, its recursive structure and behavior puzzled mathematicians and computer scientists alike. It's used in understanding algorithmic predictability limits, is frequently mentioned in complexity theory and dynamical systems, for example the growth rates, stopping times, and total stopping times of sequences have been subjects of rigorous study.\cite{ref1}\\
 Moreover, due to its simplicity, it's used as a teaching example in courses that cover topics such as algorithms, number theory, and discrete mathematics.\cite{ref1} \\
 In addition, The Collatz conjecture is not only a mathematical puzzle but also a practical benchmark for computational systems. Its iterative complexity and unpredictable behavior make it ideal for testing algorithmic efficiency and system performance. Researchers like Oliveira e Silva have used it to push the limits of parallel and distributed computing, making the conjecture a tool for evaluating large-scale computational capabilities.\cite{ref4}
 \subsection{Attempted proof}
@@ -138,11 +153,7 @@ Space complexity:
 The space complexity of the algorithm is $O(n)$, where $n$ is the number of steps in the sequence, because the algorithm stores the sequence in a list.
 \pagebreak
 \section{Conclusion}
-To include
-\begin{enumerate}
-  \item conclusion on wheather it's proved or no (answer is not yet)
-  \item how it's useful (it isn't)
-\end{enumerate}
+The Collatz conjecture remains unresolved. While it has no known practical applications, its simplicity and unpredictability make it a useful illustration in algorithm design, number theory, and computational benchmarking \cite{ref4}. The conjecture continues to captivate mathematicians as a striking example of how a basic problem can resist resolution for decades.
 \pagebreak
 \section*{}
 
