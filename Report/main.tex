@@ -37,8 +37,7 @@ The conjecture states that, starting with any positive integer \( x \), repeated
 
 That means, if the number is odd, multiply it by 3 and add 1; if it is even, divide it by 2. This process is repeated recursively. Although this algorithm appears straightforward, the long-term behavior of all starting values remains unsolved. \\
 This project explores the background, behavior, attempted proof strategies, and applications related to the conjecture.
-
-\pagebreak
+\par\noindent\hrulefill
 \section{Main Body}
 \subsection{Detailed information on the conjecture}
 The Collatz conjecture is deceptively simple in formulation but deeply complex in behavior. It concerns the iterative behavior of integers under a piecewise-defined function:
@@ -49,11 +48,12 @@ The Collatz conjecture is deceptively simple in formulation but deeply complex i
     \dfrac{x}{2} & \text{if } x \equiv 0 \pmod{2}.
   \end{cases}
 \]
+
 This process, often visualized as a sequence starting from a positive integer $x$, is repeated recursively. For instance, starting at $x=6$, the sequence evolves as: \\
 $6 \to 3 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1$ \\
 \includegraphics[width=1\textwidth]{CollatzTheoremBeginningWith6.jpeg}
 The conjecture asserts that no matter which positive integer is chosen initially, the sequence always eventually reaches the cycle $4 \to 2 \to 1$, after which it loops indefinitely. \\
-Despite extensive numerical verification up to extremely large bounds (as in the work of Oliveira e Silva), no formal proof or counterexample exists. The problem's appeal lies in its accessibility: it requires no advanced mathematics to understand, yet its resolution remains elusive even to experts. \\
+Despite extensive numerical verification up to extremely large bounds (as in the work of Oliveira e Silva), no formal proof or counterexample exists. The problem's appeal lies in its accessibility: it requires no advanced mathematics to understand, yet its resolution remains elusive even to experts. 
 
 For example,  Various generalizations and analogues of the problem, such as the $px+q$ variants, have been proposed to explore similar dynamics in broader contexts.
 
@@ -151,10 +151,11 @@ Time complexity:
 The time complexity of the algorithm is unknown because the Collatz conjecture remains unproven. Empirically, the algorithm terminates for all tested inputs, but the number of steps required to reach $1$ varies significantly depending on the input. \\
 Space complexity:
 The space complexity of the algorithm is $O(n)$, where $n$ is the number of steps in the sequence, because the algorithm stores the sequence in a list.
-\pagebreak
+\par\noindent\hrulefill
 \section{Conclusion}
 The Collatz conjecture remains unresolved. While it has no known practical applications, its simplicity and unpredictability make it a useful illustration in algorithm design, number theory, and computational benchmarking \cite{ref4}. The conjecture continues to captivate mathematicians as a striking example of how a basic problem can resist resolution for decades.
-\pagebreak
+\par\noindent\hrulefill
+
 \section*{}
 
 \begin{thebibliography}{99}
